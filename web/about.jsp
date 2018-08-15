@@ -12,6 +12,9 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <jsp:include page="menu.jsp"></jsp:include>
+        <h1>Introducción a JEE</h1>
+        <h2>Laboratorio N1 - Arquitectura de Software</h2>
+        <h3>Presentado por: Luis Enrique Velásquez Gómez</h3>
     </body>
 </html>
