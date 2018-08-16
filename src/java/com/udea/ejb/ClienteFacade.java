@@ -9,6 +9,7 @@ import com.udea.entity.Cliente;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -27,6 +28,15 @@ public class ClienteFacade extends AbstractFacade<Cliente> implements ClienteFac
 
     public ClienteFacade() {
         super(Cliente.class);
+    }
+
+    @Override
+    public boolean checkLogin(String u, String p) {
+        Query q = em.createQuery("select c from Cliente c "
+            + "where c.id=:u and c.contrasenna=:p");
+        q.setParameter("u", u);
+        q.setParameter("p", p);
+        return q.getResultList().size()>0;
     }
     
 }
