@@ -3,11 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/X:/Documents/NetBeansProjects/ConcesionarioWeb/src/java/com/udea/ejb/VentaFacade.java</file>
-            <file>file:/X:/Documents/NetBeansProjects/ConcesionarioWeb/src/java/com/udea/ejb/VehiculoFacade.java</file>
-            <file>file:/X:/Documents/NetBeansProjects/ConcesionarioWeb/src/java/com/udea/ejb/VehiculoFacadeLocal.java</file>
-            <file>file:/X:/Documents/NetBeansProjects/ConcesionarioWeb/src/java/com/udea/entity/Vehiculo.java</file>
-            <file>file:/X:/Documents/NetBeansProjects/ConcesionarioWeb/src/java/com/udea/ejb/VentaFacadeLocal.java</file>
+            <file>file:/X:/Documents/NetBeansProjects/ConcesionarioWeb/src/java/com/udea/servlet/ConcesionarioServlet.java</file>
+            <file>file:/X:/Documents/NetBeansProjects/ConcesionarioWeb/src/java/com/udea/ejb/ClienteFacade.java</file>
+            <file>file:/X:/Documents/NetBeansProjects/ConcesionarioWeb/src/java/com/udea/ejb/ClienteFacadeLocal.java</file>
+            <file>file:/X:/Documents/NetBeansProjects/ConcesionarioWeb/web/inicioSesion.jsp</file>
             <file>file:/X:/Documents/NetBeansProjects/ConcesionarioWeb/src/java/com/udea/ejb/AbstractFacade.java</file>
         </group>
     </open-files>

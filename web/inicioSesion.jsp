@@ -22,26 +22,26 @@
         <jsp:include page="menu.jsp"></jsp:include>
         <h1>Hello World!</h1>
         <c:if test="${param.error==1}">
-            <font color="red">Usuario invalido. Intentelo de nuevo.</font>
+            <font color="red">Usuario inválido. Inténtelo de nuevo.</font>
         </c:if>
         <div class="container well">
-            <h1>Iniciar Sesion</h1>
-            <form action="Servlet?action=iniciarSesion" method="post">
+            <h1>Iniciar Sesión</h1>
+            <form action="ConcesionarioServlet?action=iniciarSesion" method="post">
                 <table>
                     <tr>
                         <th>
-                            <label><b>Correo Electronico:</b></label>
+                            <label><b>ID:</b></label>
                         </th>
                         <th>
-                            <input type="email" placeholder="Ingrese su correo electronico" class="form-control" name="email" required=""/>
+                            <input type="text" pattern="[0-9]+" placeholder="Ingrese su ID" class="form-control" name="id" required />
                         </th>
                     </tr>
                     <tr>
                         <th>
-                            <label><b>Contrasenna:</b></label>
+                            <label><b>Contraseña:</b></label>
                         </th>
                         <th>
-                            <input type="password" placeholder="Ingrese su contrasenna" class="form-control" name="contrasenna" required=""/>
+                            <input type="password" placeholder="Ingrese su contraseña" class="form-control" name="contrasenna" required />
                         </th>
                     </tr>
                     

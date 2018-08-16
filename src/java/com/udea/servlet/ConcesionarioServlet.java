@@ -5,8 +5,11 @@
  */
 package com.udea.servlet;
 
+import com.udea.ejb.ClienteFacadeLocal;
+import com.udea.entity.Cliente;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,6 +20,9 @@ import javax.servlet.http.HttpServletResponse;
  * @author Luis
  */
 public class ConcesionarioServlet extends HttpServlet {
+
+    @EJB
+    private ClienteFacadeLocal clienteFacade;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -30,17 +36,29 @@ public class ConcesionarioServlet extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ConcesionarioServlet</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ConcesionarioServlet at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        PrintWriter out = response.getWriter();
+        try {
+            String action = request.getParameter("action");
+            String url = "index.jsp";
+            
+            if (action != null) switch (action) {
+                case "iniciarSesion":
+                    String identificacion = request.getParameter("id");
+                    String contrasenna = request.getParameter("contrasenna");
+                    boolean sesionValida = clienteFacade.checkLogin(identificacion, contrasenna);
+                    
+                    if (sesionValida) {
+                        Cliente cliente = clienteFacade.find(identificacion);
+                        request.getSession().setAttribute("cliente", cliente.getNombres());
+                        url = "index.jsp";
+                    } else {
+                        url = "inicioSesion.jsp?error=1";
+                    }
+                    break;
+            }
+            
+        } finally {
+            
         }
     }
 
