@@ -30,6 +30,6 @@ public interface ClienteFacadeLocal {
 
     int count();
 
-    boolean checkLogin(String u, String p);
+    boolean checkLogin(int u, String p);
     
 }

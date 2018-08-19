@@ -1,6 +1,6 @@
 <%-- 
-    Document   : about
-    Created on : Aug 15, 2018, 12:16:23 PM
+    Document   : manager
+    Created on : Aug 19, 2018, 4:19:09 PM
     Author     : Luis
 --%>
 
@@ -13,9 +13,6 @@
     </head>
     <body>
         <jsp:include page="menu.jsp"></jsp:include>
-        <br/>
-        <h1>Introducción a JEE</h1>
-        <h2>Laboratorio N1 - Arquitectura de Software</h2>
-        <h3>Presentado por: Luis Enrique Velásquez Gómez</h3>
+        <h1>BIENVENIDO A LA PÁGINA ${cliente}</h1>
     </body>
 </html>

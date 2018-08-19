@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -16,7 +18,7 @@
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
         
-        <title>JSP Page</title>
+        <title>Iniciar Sesión - ConcesionarioWeb</title>
     </head>
     <body>
         <jsp:include page="menu.jsp"></jsp:include>
@@ -45,7 +47,7 @@
                         </th>
                     </tr>
                     
-                    <div class="break"></div>
+<!--                    <div class="break"></div>-->
                     
                     <tr>
                         <td colspan="3">
@@ -55,8 +57,8 @@
                             <input class="btn btn-info" type="reset" name="action" value="Limpiar"/>
                             <span class="glyphicon glyphicon-remove"></span>
                             
-                            <input class="btn btn-info" type="???" name="action" value="Cancelar"/>
-                            <span class="glyphicon glyphicon-home"></span>                            
+<!--                            <input class="btn btn-info" type="submit" name="action" value="Cancelar"/>
+                            <span class="glyphicon glyphicon-home"></span>                            -->
                         </td>
                     </tr>
                     

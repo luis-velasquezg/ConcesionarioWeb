@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -28,22 +30,7 @@
                 <th>Correo electronico</th>
                 <th>Rol</th>
                 <c:forEach items="${clientes}" var="cliente">
-                    <tr>    
-                        <td>${cliente.id}</td>
-                        <td>${cliente.nombres}</td>
-                        <td>${cliente.apellidos}</td>
-                        <td>${cliente.email}</td>
-                        <td>${cliente.rol}</td>
-                        <% if (0 < 1) { %>
-                            <c:if test="${rolCliente=='admin'}">
-                                <td>
-                                    <a onclick="return confirm('Esta seguro?')" href="Servlet?action=eliminarCliente&id${cliente.id}">Eliminar</a>
-                                </td>
-                            </c:if>
-                        <% } else { %>
-                            <p> No es menor que 1. </p>
-                        <% } %>
-                    </tr>
+                    |${cliente.id}| |${cliente.nombres}| |${cliente.apellidos}| |${cliente.email}| |${cliente.rol}|
                 </c:forEach>
             </table>
         </div>

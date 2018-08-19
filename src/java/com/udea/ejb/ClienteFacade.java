@@ -31,7 +31,7 @@ public class ClienteFacade extends AbstractFacade<Cliente> implements ClienteFac
     }
 
     @Override
-    public boolean checkLogin(String u, String p) {
+    public boolean checkLogin(int u, String p) {
         Query q = em.createQuery("select c from Cliente c "
             + "where c.id=:u and c.contrasenna=:p");
         q.setParameter("u", u);

@@ -9,6 +9,7 @@ import com.udea.ejb.ClienteFacadeLocal;
 import com.udea.entity.Cliente;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -35,18 +36,21 @@ public class ConcesionarioServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
         response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
+        PrintWriter printer = response.getWriter();
+        
         try {
             String action = request.getParameter("action");
+            System.out.println("action: " + action);
             String url = "index.jsp";
+            //Cliente cliente;
             
             if (action != null) switch (action) {
-                case "iniciarSesion":
-                    String identificacion = request.getParameter("id");
+                case "iniciarSesion": 
+                    int identificacion = Integer.valueOf(request.getParameter("id"));
                     String contrasenna = request.getParameter("contrasenna");
                     boolean sesionValida = clienteFacade.checkLogin(identificacion, contrasenna);
-                    
                     if (sesionValida) {
                         Cliente cliente = clienteFacade.find(identificacion);
                         request.getSession().setAttribute("cliente", cliente.getNombres());
@@ -55,20 +59,45 @@ public class ConcesionarioServlet extends HttpServlet {
                         url = "inicioSesion.jsp?error=1";
                     }
                     break;
-                case "insertarCliente":
-                    Cliente c = new Cliente();
-                    c.setId(Integer.parseInt(request.getParameter("id")));
-                    c.setNombres(request.getParameter("nombres"));
-                    c.setApellidos(request.getParameter("apellidos"));
-                    c.setEmail(request.getParameter("email"));
-                    c.setContrasenna("contrasenna");
-                    clienteFacade.create(c);
+                    
+                case "insertarCliente": {
+                    Cliente cliente = new Cliente();
+                    cliente.setId(Integer.parseInt(request.getParameter("id")));
+                    cliente.setNombres(request.getParameter("nombres"));
+                    cliente.setApellidos(request.getParameter("apellidos"));
+                    cliente.setEmail(request.getParameter("email"));
+                    cliente.setContrasenna("contrasenna");
+                    clienteFacade.create(cliente);
                     url = "inicioSesion.jsp";
                     break;
-            }
+                }
+                    
+                case "eliminarCliente":
+                    String id = request.getParameter("id");
+                    Cliente cliente = clienteFacade.find(Integer.valueOf(id));
+                    clienteFacade.remove(cliente);
+                    url = "ConcesionarioServlet?action=listarClientes";
+                    break;
+                    
+                case "listarClientes":
+                    List<Cliente> clientes = clienteFacade.findAll();
+                    request.getSession().setAttribute("clientes", clientes);
+                    url = "listadoClientes.jsp";
+                    break;
+                    
+                case "cerrarSesion":
+                    request.getSession().removeAttribute("cliente");
+                    url = "inicioSesion.jsp";
+                    break;
+                    
+                default:
+                    break;
+            }       
+            
+            response.sendRedirect(url);
             
         } finally {
-            
+            printer.close();
         }
     }
 
