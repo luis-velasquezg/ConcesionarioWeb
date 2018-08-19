@@ -55,6 +55,16 @@ public class ConcesionarioServlet extends HttpServlet {
                         url = "inicioSesion.jsp?error=1";
                     }
                     break;
+                case "insertarCliente":
+                    Cliente c = new Cliente();
+                    c.setId(Integer.parseInt(request.getParameter("id")));
+                    c.setNombres(request.getParameter("nombres"));
+                    c.setApellidos(request.getParameter("apellidos"));
+                    c.setEmail(request.getParameter("email"));
+                    c.setContrasenna("contrasenna");
+                    clienteFacade.create(c);
+                    url = "inicioSesion.jsp";
+                    break;
             }
             
         } finally {
