@@ -47,6 +47,7 @@ public class ConcesionarioServlet extends HttpServlet {
             //Cliente cliente;
             
             if (action != null) switch (action) {
+                // **Clientes**
                 case "iniciarSesion": 
                     int identificacion = Integer.valueOf(request.getParameter("id"));
                     String contrasenna = request.getParameter("contrasenna");
@@ -67,7 +68,7 @@ public class ConcesionarioServlet extends HttpServlet {
                     cliente.setApellidos(request.getParameter("apellidos"));
                     cliente.setEmail(request.getParameter("email"));
                     cliente.setContrasenna(request.getParameter("contrasenna"));
-                    cliente.setRol("regular");
+                    cliente.setRol(null);
                     clienteFacade.create(cliente);
                     url = "inicioSesion.jsp";
                     break;
@@ -91,6 +92,19 @@ public class ConcesionarioServlet extends HttpServlet {
                     url = "inicioSesion.jsp";
                     break;
                     
+                // **Vehiculos**
+//                case "insertarVehiculo":
+//                    List<Vehiculo> vehiculos = vehiculoFacade.findAll();
+//                    request.getSession().setAttribute("vehiculos", vehiculos);
+//                    break;
+//                    
+//                case "listarVehiculos":
+//                    break;
+//                case "detallesVehiculo":
+//                    String matricula = request.getParameter("matricula");
+//                    request.getSession().setAttribute("vehiculos", vehicu)
+//                    break;
+                        
                 default:
                     break;
             }       

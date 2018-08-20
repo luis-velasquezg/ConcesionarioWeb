@@ -25,7 +25,7 @@
                 <th scope="row">Matricula</th>
                 <th>Marca</th>
                 <th>Modelo</th>
-                <th>Anno</th>
+                <th>Año</th>
                 <th>Precio</th>
                 <th>Foto</th>
                 <c:forEach items="${vehiculos}" var="vehiculo">

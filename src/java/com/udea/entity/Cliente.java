@@ -6,6 +6,7 @@
 package com.udea.entity;
 
 import java.io.Serializable;
+import java.sql.JDBCType;
 import java.util.List;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
@@ -73,6 +74,8 @@ public class Cliente implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "propietario")
     private List<Venta> ventaList;
 
+    private static final String DEFAULT_ROL = "regular";
+    
     public Cliente() {
     }
 
@@ -84,7 +87,11 @@ public class Cliente implements Serializable {
         this.id = id;
         this.nombres = nombres;
         this.apellidos = apellidos;
-        this.rol = rol;
+        if (rol != null) {
+            this.rol = rol;
+        } else {
+            this.rol = DEFAULT_ROL;
+        }
         this.email = email;
         this.contrasenna = contrasenna;
     }
@@ -118,7 +125,11 @@ public class Cliente implements Serializable {
     }
 
     public void setRol(String rol) {
-        this.rol = rol;
+        if (rol != null) {
+            this.rol = rol;
+        } else {
+            this.rol = DEFAULT_ROL;
+        }
     }
 
     public String getEmail() {

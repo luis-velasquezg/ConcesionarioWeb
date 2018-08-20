@@ -22,7 +22,7 @@
         <jsp:include page="menu.jsp"></jsp:include>
         <h1>Concesionario Web</h1>
         <c:if test="${not empty cliente}">
-            <h2>Bienvenido(a) a la página ${cliente}</h2>
+            <h2>Bienvenido(a) a la página, ${cliente}</h2>
         </c:if>
     </body>
 </html>
