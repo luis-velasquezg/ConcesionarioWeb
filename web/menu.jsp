@@ -22,7 +22,7 @@
     | <a href="registroVehiculo.jsp">Registrar Vehículos</a> ||
     <a href="listadoVentas.jsp">Ventas Generales</a> |
     <a href="ConcesionarioServlet?action=listarClientes">Listado de Clientes</a> |
-    <a href="listadoVehiculos.jsp">Listado de Vehículos</a> ||
+    <a href="VehiculoServlet?action=listarVehiculos">Listado de Vehículos</a> ||
     <a href="ConcesionarioServlet?action=cerrarSesion">Cerrar Sesión</a>
 </c:if>
     

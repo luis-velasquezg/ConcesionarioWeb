@@ -4,9 +4,17 @@
         <servlet-name>ConcesionarioServlet</servlet-name>
         <servlet-class>com.udea.servlet.ConcesionarioServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>VehiculoServlet</servlet-name>
+        <servlet-class>com.udea.servlet.VehiculoServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ConcesionarioServlet</servlet-name>
         <url-pattern>/ConcesionarioServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>VehiculoServlet</servlet-name>
+        <url-pattern>/VehiculoServlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

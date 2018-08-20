@@ -5,8 +5,8 @@
  */
 package com.udea.servlet;
 
-import com.udea.ejb.ClienteFacadeLocal;
-import com.udea.entity.Cliente;
+import com.udea.ejb.VehiculoFacadeLocal;
+import com.udea.entity.Vehiculo;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -20,10 +20,10 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Luis
  */
-public class ConcesionarioServlet extends HttpServlet {
+public class VehiculoServlet extends HttpServlet {
 
     @EJB
-    private ClienteFacadeLocal clienteFacade;
+    private VehiculoFacadeLocal vehiculoFacade;
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -42,59 +42,25 @@ public class ConcesionarioServlet extends HttpServlet {
         
         try {
             String action = request.getParameter("action");
-            System.out.println("action: " + action);
+            System.out.println("action (vehiculo): " + action);
             String url = "index.jsp";
-            //Cliente cliente;
             
             if (action != null) switch (action) {
-                // **Clientes**
-                case "iniciarSesion": 
-                    int identificacion = Integer.valueOf(request.getParameter("id"));
-                    String contrasenna = request.getParameter("contrasenna");
-                    boolean sesionValida = clienteFacade.checkLogin(identificacion, contrasenna);
-                    if (sesionValida) {
-                        Cliente cliente = clienteFacade.find(identificacion);
-                        request.getSession().setAttribute("cliente", cliente.getNombres());
-                        url = "index.jsp";
-                    } else {
-                        url = "inicioSesion.jsp?error=1";
-                    }
+                // **Vehiculos**
+                case "insertarVehiculo":
                     break;
                     
-                case "insertarCliente": {
-                    Cliente cliente = new Cliente();
-                    cliente.setId(Integer.parseInt(request.getParameter("id")));
-                    cliente.setNombres(request.getParameter("nombres"));
-                    cliente.setApellidos(request.getParameter("apellidos"));
-                    cliente.setEmail(request.getParameter("email"));
-                    cliente.setContrasenna(request.getParameter("contrasenna"));
-                    cliente.setRol(null);
-                    clienteFacade.create(cliente);
-                    url = "inicioSesion.jsp";
-                    break;
-                }
-                    
-                case "eliminarCliente":
-                    String id = request.getParameter("id");
-                    Cliente cliente = clienteFacade.find(Integer.valueOf(id));
-                    clienteFacade.remove(cliente);
-                    url = "ConcesionarioServlet?action=listarClientes";
+                case "listarVehiculos":
+                    List<Vehiculo> vehiculos = vehiculoFacade.findAll();
+                    request.getSession().setAttribute("vehiculos", vehiculos);
+                    url = "listadoVehiculos.jsp";
                     break;
                     
-                case "listarClientes":
-                    List<Cliente> clientes = clienteFacade.findAll();
-                    request.getSession().setAttribute("clientes", clientes);
-                    url = "listadoClientes.jsp";
+                case "detallesVehiculo":
+//                    String matricula = request.getParameter("matricula");
+//                    request.getSession().setAttribute("vehiculos", vehicu)
                     break;
-                    
-                case "cerrarSesion":
-                    request.getSession().removeAttribute("cliente");
-                    url = "inicioSesion.jsp";
-                    break;
-                    
-                default:
-                    break;
-            }       
+            }
             
             response.sendRedirect(url);
             

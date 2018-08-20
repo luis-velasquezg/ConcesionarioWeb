@@ -25,7 +25,7 @@
                 <th scope="row">Matricula</th>
                 <th>Marca</th>
                 <th>Modelo</th>
-                <th>Anno</th>
+                <th>Año</th>
                 <th>Estado Venta</th>
                 <th>Precio</th>
                 <th>Foto</th>
@@ -37,16 +37,7 @@
                         <td>${vehiculo.anno}</td>
                         <td>${vehiculo.estadoVenta}</td>
                         <td>${vehiculo.precio}</td>
-                        <td><img src="${vehiculo.getFotoBase64()}"></td>
-                        <% if (0 < 1) { %>
-                            <c:if test="${rolCliente=='admin'}">
-                                <td>
-                                    <a onclick="return confirm('Esta seguro?')" href="Servlet?action=eliminarVehiculo&matricula${vehiculo.matricula}">Eliminar</a>
-                                </td>
-                            </c:if>
-                        <% } else { %>
-                            <p> No es menor que 1. </p>
-                        <% } %>
+                        <!--<td><img src="${vehiculo.getFotoBase64()}"></td>-->
                     </tr>
                 </c:forEach>
             </table>
