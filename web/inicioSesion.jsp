@@ -11,23 +11,22 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="style.css">
-        <!-- Optional theme -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-        <!-- Latest compiled and minified JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+            integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         
-        <title>Iniciar Sesión - ConcesionarioWeb</title>
+        <title>Iniciar Sesión - Concesionario Web</title>
     </head>
     <body>
         <jsp:include page="menu.jsp"></jsp:include>
-        <h1>Hello World!</h1>
+        <h1>Concesionario Web</h1>
         <c:if test="${param.error==1}">
             <font color="red">Usuario inválido. Inténtelo de nuevo.</font>
         </c:if>
         <div class="container well">
-            <h1>Iniciar Sesión</h1>
+            <h2>Iniciar Sesión</h2>
             <form action="ConcesionarioServlet?action=iniciarSesion" method="post">
                 <table>
                     <tr>
@@ -35,7 +34,7 @@
                             <label><b>ID:</b></label>
                         </th>
                         <th>
-                            <input type="text" pattern="[0-9]+" placeholder="Ingrese su ID" class="form-control" name="id" required />
+                            <input type="text" pattern="[0-9]+" placeholder="Ingrese su ID" class="form-control" title="Sólo números" name="id" required />
                         </th>
                     </tr>
                     <tr>
@@ -58,6 +57,7 @@
                             <span class="glyphicon glyphicon-remove"></span>
                             
 <!--                            <input class="btn btn-info" type="submit" name="action" value="Cancelar"/>
+                                    onclick=""
                             <span class="glyphicon glyphicon-home"></span>                            -->
                         </td>
                     </tr>

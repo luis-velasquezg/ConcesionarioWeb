@@ -66,7 +66,8 @@ public class ConcesionarioServlet extends HttpServlet {
                     cliente.setNombres(request.getParameter("nombres"));
                     cliente.setApellidos(request.getParameter("apellidos"));
                     cliente.setEmail(request.getParameter("email"));
-                    cliente.setContrasenna("contrasenna");
+                    cliente.setContrasenna(request.getParameter("contrasenna"));
+                    cliente.setRol("regular");
                     clienteFacade.create(cliente);
                     url = "inicioSesion.jsp";
                     break;

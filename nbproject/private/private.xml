@@ -10,6 +10,7 @@
             <file>file:/X:/Documents/NetBeansProjects/ConcesionarioWeb/src/java/com/udea/ejb/ClienteFacadeLocal.java</file>
             <file>file:/X:/Documents/NetBeansProjects/ConcesionarioWeb/web/index.jsp</file>
             <file>file:/X:/Documents/NetBeansProjects/ConcesionarioWeb/src/java/com/udea/entity/Cliente.java</file>
+            <file>file:/X:/Documents/NetBeansProjects/ConcesionarioWeb/web/listadoClientes.jsp</file>
             <file>file:/X:/Documents/NetBeansProjects/ConcesionarioWeb/src/java/com/udea/ejb/AbstractFacade.java</file>
             <file>file:/X:/Documents/NetBeansProjects/ConcesionarioWeb/web/WEB-INF/manager.jsp</file>
         </group>

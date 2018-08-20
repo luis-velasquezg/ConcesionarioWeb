@@ -9,27 +9,27 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="style.css">
-        <!-- Optional theme -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-        <!-- Latest compiled and minified JavaScript -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+            integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        
         <title>Registro de Clientes - Concesionario Web</title>
     </head>
     <body>
         <jsp:include page="menu.jsp"></jsp:include>
-        <h1>Hello World!</h1>
+        <h1>Concesionario Web</h1>
         <div class="container well">
-            <h1>Registrar Cliente</h1>
-            <form action="Servlet?action=insertarCliente" method="post">
+            <h2>Registrar Cliente</h2>
+            <form action="ConcesionarioServlet?action=insertarCliente" method="post">
                 <table>
                     <tr>
                         <th>
                             <label><b>ID:</b></label>
                         </th>
                         <th>
-                            <input type="number" placeholder="Ingrese identificacion" class="form-control" name="id" required=""/>
+                            <input type="text" placeholder="Ingrese identificación" pattern="[0-9]+" title="Sólo números" class="form-control" name="id" required>
                         </th>
                     </tr>
                     <tr>
@@ -37,7 +37,7 @@
                             <label><b>Nombres:</b></label>
                         </th>
                         <th>
-                            <input type="text" placeholder="Ingrese nombres" class="form-control" name="nombres" required=""/>
+                            <input type="text" placeholder="Ingrese nombres" pattern="[A-Za-zÁÉÍÓÚáéíóú\s]+" class="form-control" name="nombres" required>
                         </th>
                     </tr>
                     <tr>
@@ -45,23 +45,23 @@
                             <label><b>Apellidos:</b></label>
                         </th>
                         <th>
-                            <input type="text" placeholder="Ingrese apellidos" class="form-control" name="apellidos" required=""/>
+                            <input type="text" placeholder="Ingrese apellidos" pattern="[A-Za-zÁÉÍÓÚáéíóú\s]+" class="form-control" name="apellidos" required>
                         </th>
                     </tr>
                     <tr>
                         <th>
-                            <label><b>Correo Electronico:</b></label>
+                            <label><b>Correo Electrónico:</b></label>
                         </th>
                         <th>
-                            <input type="email" placeholder="Ingrese correo electronico" class="form-control" name="email" required=""/>
+                            <input type="email" placeholder="Ingrese correo electrónico" class="form-control" name="email" required>
                         </th>
                     </tr>
                     <tr>
                         <th>
-                            <label><b>Contrasenna:</b></label>
+                            <label><b>Contraseña:</b></label>
                         </th>
                         <th>
-                            <input type="password" placeholder="Ingrese contrasenna" class="form-control" name="contrasenna" required=""/>
+                            <input type="password" placeholder="Ingrese contraseña" class="form-control" name="contrasenna" required>
                         </th>
                     </tr>
                     
@@ -75,8 +75,8 @@
                             <input class="btn btn-info" type="reset" name="action" value="Limpiar">
                             <span class="glyphicon glyphicon-remove"></span>
                             
-                            <input class="btn btn-info" type="???" name="action" value="Cancelar"/>
-                            <span class="glyphicon glyphicon-home"></span>
+<!--                            <input class="btn btn-info" type="???" name="action" value="Cancelar"/>
+                            <span class="glyphicon glyphicon-home"></span>-->
                         </td>
                     </tr>
                 </table>
