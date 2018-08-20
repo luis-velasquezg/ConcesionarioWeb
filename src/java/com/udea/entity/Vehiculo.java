@@ -62,8 +62,8 @@ public class Vehiculo implements Serializable {
     @Basic(optional = false)
     @NotNull
     @Column(name = "anno")
-    @Temporal(TemporalType.DATE)
-    private Date anno;
+    //@Temporal(TemporalType.DATE)
+    private int anno;
     @Basic(optional = false)
     @NotNull
     @Column(name = "estado_venta")
@@ -85,7 +85,7 @@ public class Vehiculo implements Serializable {
         this.matricula = matricula;
     }
 
-    public Vehiculo(String matricula, String marca, String modelo, Date anno, boolean estadoVenta, double precio) {
+    public Vehiculo(String matricula, String marca, String modelo, int anno, boolean estadoVenta, double precio) {
         this.matricula = matricula;
         this.marca = marca;
         this.modelo = modelo;
@@ -118,11 +118,11 @@ public class Vehiculo implements Serializable {
         this.modelo = modelo;
     }
 
-    public Date getAnno() {
+    public int getAnno() {
         return anno;
     }
 
-    public void setAnno(Date anno) {
+    public void setAnno(int anno) {
         this.anno = anno;
     }
 

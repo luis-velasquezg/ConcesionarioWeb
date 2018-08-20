@@ -5,6 +5,8 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib  prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,18 +17,19 @@
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
             
-        <title>Listado de Vehiculos - Concesionario Web</title>
+        <title>Listado de Vehículos - Concesionario Web</title>
     </head>
     <body>
         <jsp:include page="menu.jsp"></jsp:include>
-        <h1>Listado de Vehiculos</h1>
+        <h1>Concesionario Web</h1>
+        <h2>Listado de Vehículos</h2>
         <div class="container well">
             <table border="1" class="table table-striped">
-                <th scope="row">Matricula</th>
+                <th scope="row">Matrícula</th>
                 <th>Marca</th>
                 <th>Modelo</th>
                 <th>Año</th>
-                <th>Estado Venta</th>
+                <th>En Venta</th>
                 <th>Precio</th>
                 <th>Foto</th>
                 <c:forEach items="${vehiculos}" var="vehiculo">
@@ -37,7 +40,6 @@
                         <td>${vehiculo.anno}</td>
                         <td>${vehiculo.estadoVenta}</td>
                         <td>${vehiculo.precio}</td>
-                        <!--<td><img src="${vehiculo.getFotoBase64()}"></td>-->
                     </tr>
                 </c:forEach>
             </table>
