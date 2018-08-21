@@ -60,6 +60,20 @@ public class VehiculoServlet extends HttpServlet {
 //                    String matricula = request.getParameter("matricula");
 //                    request.getSession().setAttribute("vehiculos", vehicu)
                     break;
+                
+                case "buscarMatricula":
+                    String matricula = request.getParameter("matricula");
+                    Vehiculo vehiculo = vehiculoFacade.find(matricula);
+                    if (vehiculo != null) {
+                        request.getSession().setAttribute("vehiculo", vehiculo);
+                        url = "detallesVehiculo.jsp";
+                    } else {
+                        url = "detallesVehiculo.jsp?error=1";
+                    }
+                    break;
+                
+                default:
+                    break;
             }
             
             response.sendRedirect(url);

@@ -11,7 +11,7 @@
 <a href="about.jsp">About</a> ||
 
 <a href="catalogoVehiculos.jsp">Catálogo de Vehículos</a> |
-<a href="busquedaMatricula.jsp">Buscar por Matrícula</a>
+<a href="detallesVehiculo.jsp">Buscar por Matrícula</a>
 
 <c:if test="${empty cliente}">
     || <a href="registroCliente.jsp">Registrarse</a> |
@@ -25,7 +25,7 @@
     <a href="VehiculoServlet?action=listarVehiculos">Listado de Vehículos</a> ||
     <a href="ConcesionarioServlet?action=cerrarSesion">Cerrar Sesión</a>
 </c:if>
-    
+<hr>
 
 <%--<c:if test="${not empty login}">
     <c:if test="${rol eq 'admin'}">  test="${rol=='admin'}" 
@@ -39,5 +39,3 @@
     </c:otherwise>
     |<a href="Servlet?action=logout">Cerrar Sesión</a>|
 </c:if>--%>
-
-<hr/>

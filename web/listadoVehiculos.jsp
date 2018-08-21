@@ -40,6 +40,7 @@
                         <td>${vehiculo.anno}</td>
                         <td>${vehiculo.estadoVenta}</td>
                         <td>${vehiculo.precio}</td>
+                        <!--foto-->
                     </tr>
                 </c:forEach>
             </table>
